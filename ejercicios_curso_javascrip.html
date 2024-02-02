@@ -151,7 +151,7 @@ const numAleatorio = ()=>
 
   numAleatorio();
   console.log("******************");
-console.log("******************");
+  console.log("******************");
   
 
 
@@ -205,6 +205,69 @@ return console.info(`El factorial de ${numero} es ${factorial}`);
 }
 
 factorial(5);
+
+console.log("******************");
+console.log("******************");
+
+
+// 12) Programa una función que determine si un número es primo 
+//(aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.
+
+  const primo = (numero = undefined)=>{
+  if (!numero) return console.warn("No haz ingresado ningun numero");
+  if(typeof numero !== "number") return console.error(`El valor ${numero} No es un numero`);
+  if(numero === 1) return console.error("El numero no puede ser 1");
+  if(numero === 0) return console.error("El numero no puede ser 0");
+  if (Math.sign(numero)=== -1) return console.error("El numero no puede ser negativo");
+
+  let divisible = false;
+  for (let i = 2; i<numero; i++){
+    if((numero%i) === 0){
+      divisible = true;
+      break;
+    }
+  }
+return(divisible)
+?console.info(`El numero ${numero} NO es primo`)
+:console.info(`El numero ${numero} SI es primo`);
+
+}
+primo(2);
+
+console.log("******************");
+console.log("******************");
+
+
+// 13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.
+
+const esONoPar = (numero = undefined) => {
+  if (!numero) return console.warn("No haz ingresado ningun numero");
+  if(typeof numero !== "number") return console.error(`El valor ${numero} No es un numero`);
+  return((numero % 2) === 0)
+  ?console.info(`El numero ${numero} es par`)
+  :console.info(`El numero ${numero} es impar`);
+
+}
+esONoPar(6);
+
+
+
+
+// 14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, 
+//pe. miFuncion(0,"C") devolverá 32°F.
+
+const ConvertirGrados = (grados = undefined) => {
+  if (!numero) return console.warn("No haz ingresado ningun numero");
+  if(typeof numero !== "number") return console.error(`El valor ${numero} No es un numero`);
+  
+
+
+
+
+}
+
+
+
 
 
 
