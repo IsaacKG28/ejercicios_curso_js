@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fundamentos JavaScript</title>
+<h1>Fundamentos JavaScript</h1>
+  </head>
+
+<body>
+  <script>
+
+
+
+// 1) Programa una función que cuente el número de caracteres de una cadena de texto, 
+// pe. miFuncion("Hola Mundo") devolverá 10.
+
+const numeroCaracteres = (cadena = "") =>
+(!cadena)
+?console.warn("No ingresaste ninguna cadena")
+:console.info(`La cadena ${cadena} tiene ${cadena.length} caracteres`);
+
+
+numeroCaracteres("Hola Mundo");
+console.log("******************");
+
+// 2) Programa una función que te devuelva el texto recortado según el número de caracteres indicados, 
+// pe. miFuncion("Hola Mundo", 4) devolverá "Hola".
+
+const recortaTexto = (cadena = "", longitud = undefined)=> 
+(!cadena)
+  ?console.warm("No haz ingresado la cadena")
+  :console.info(cadena.slice(0, longitud));
+
+recortaTexto("Hola Mundo", 4);
+console.log("******************");
+
+
+// 3) Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter, 
+//pe. miFuncion('hola que tal', ' ') devolverá ['hola', 'que', 'tal'].
+
+const convertirString = (cadena = "", espacio = undefined) =>
+(!cadena)
+    ?console.warm("No haz ingresado ningun texto")
+    :(espacio === undefined)
+    ?console.warm("No ingresaste ningun separador")
+    :console.info(cadena.split(espacio))
+
+  convertirString("Hola,mundo,hola,mundo", ",");
+  console.log("******************");
+
+
+// 4) Programa una función que repita un texto X veces, 
+//pe. miFuncion('Hola Mundo', 3) devolverá Hola Mundo Hola Mundo Hola Mundo.
+
+const repetirTexto = (texto = "", contador = undefined)=>{
+    if (!texto) return console.warm("No haz ingresado ningun texto");
+    if (contador === undefined) return console.warm("No ingresaste el numero de veces a a repetir");
+    if (contador === 0) return console.error("El numero de veces no puede ser 0");
+    if (Math.sign(contador)=== -1) return console.warm("El numero de veces no puede ser negativo");
+  for(let i=1; i<=contador; i++){
+    console.info(`${texto}, ${i}`);
+  }
+
+}
+repetirTexto("Hola Mundo", 5);
+console.log("******************");
+</script>
+</body>
+
+</html>
