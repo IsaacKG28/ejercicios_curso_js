@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -25,6 +24,8 @@ const numeroCaracteres = (cadena = "") =>
 
 numeroCaracteres("Hola Mundo");
 console.log("******************");
+console.log("******************");
+
 
 // 2) Programa una función que te devuelva el texto recortado según el número de caracteres indicados, 
 // pe. miFuncion("Hola Mundo", 4) devolverá "Hola".
@@ -36,7 +37,7 @@ const recortaTexto = (cadena = "", longitud = undefined)=>
 
 recortaTexto("Hola Mundo", 4);
 console.log("******************");
-
+console.log("******************");
 
 // 3) Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter, 
 //pe. miFuncion('hola que tal', ' ') devolverá ['hola', 'que', 'tal'].
@@ -50,7 +51,7 @@ const convertirString = (cadena = "", espacio = undefined) =>
 
   convertirString("Hola,mundo,hola,mundo", ",");
   console.log("******************");
-
+  console.log("******************");
 
 // 4) Programa una función que repita un texto X veces, 
 //pe. miFuncion('Hola Mundo', 3) devolverá Hola Mundo Hola Mundo Hola Mundo.
@@ -66,7 +67,86 @@ const repetirTexto = (texto = "", contador = undefined)=>{
 
 }
 repetirTexto("Hola Mundo", 5);
-//console.log("******************");
+console.log("******************");
+console.log("******************");
+
+
+// 5) Programa una función que invierta las palabras de una cadena de texto, 
+//pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
+
+const invertirCadena = (cadena = "")=>
+(!cadena)
+?console.warn("La cadena de texto no puede ser vacia")
+:console.info(cadena.split("").reverse().join(""));
+
+invertirCadena("Hola Mundo")
+console.log("******************");
+console.log("******************");
+
+
+// 6) Programa una función para contar el número de veces que se repite una 
+//palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
+
+const numTextoRepetido = (cadena = "", palabra = "texto")=>{
+if (!cadena) return console.warm("No haz ingresado ningun texto");
+if (palabra === undefined) return console.warm("No ingresaste la palbra que quieres repetir");
+let i=0;
+  contador = 0;
+  while(i !== -1 ){
+i = cadena.indexOf(palabra, i);
+    if( i !== -1){
+      i++;
+      contador++;
+    } 
+
+  }
+
+ return console.info(`La palabra ${palabra} se repite ${contador} veces`);
+}
+ numTextoRepetido("Hola mundo mundo mundo mundo mmm", "mundo");
+ console.log("******************");
+ console.log("******************");
+
+
+// 7) Programa una función que valide si una palabra o frase dada, es un palíndromo 
+//(que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
+
+const palabraPalindromo = (cadena = "")=>{
+  if (!cadena) return console.warn("No haz ingresado ningun texto");
+
+  cadena = cadena.toLocaleLowerCase();
+  let alReves = cadena.split("").reverse().join("");
+  return(cadena === alReves)
+
+  ?console.info(`Si es palíndromo. Palabra original ${cadena}.Palabra al revés ${alReves}`)
+  :console.info(`No es palíndromo. Palabra original ${cadena}.Palabra al revés ${alReves}`);
+}
+ 
+
+palabraPalindromo("salas");
+console.log("******************");
+console.log("******************");
+
+
+// 8) Programa una función que elimine cierto patrón de caracteres de un texto dado, 
+//pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
+
+const patronCaracteres = (cadena ="", patron ="")=>
+  (!cadena)
+    ?console.warn("La cadena no puede ser vacia")
+    :(!patron)
+    ?console.warn("No ingresaste el patron de caracteres")
+    :console.info(cadena.replace(new RegExp(patron, "ig"),""));
+  
+  patronCaracteres("xyz1, xyz,2 xyz3, xyz4, xyz3", "xyz");
+  console.log("******************");
+console.log("******************");
+
+
+
+
+
+
 </script>
 </body>
 
