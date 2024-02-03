@@ -45,8 +45,10 @@ console.log("******************");
 const convertirString = (cadena = "", espacio = undefined) =>
 (!cadena)
     ?console.warm("No haz ingresado ningun texto")
+
     :(espacio === undefined)
     ?console.warm("No ingresaste ningun separador")
+
     :console.info(cadena.split(espacio))
 
   convertirString("Hola,mundo,hola,mundo", ",");
@@ -75,13 +77,11 @@ console.log("******************");
 //pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
 
 const invertirCadena = (cadena = "")=>
-(!cadena)
-?console.warn("La cadena de texto no puede ser vacia")
-:console.info(cadena.split("").reverse().join(""));
+  (!cadena)
+  ?console.warn("No haz ingresado ninguna cadena de texto")
+  :console.info(cadena.split("").reverse().join(""));
 
-invertirCadena("Hola Mundo")
-console.log("******************");
-console.log("******************");
+  invertirCadena("HOLA MUNDO");
 
 
 // 6) Programa una función para contar el número de veces que se repite una 
@@ -91,7 +91,7 @@ const numTextoRepetido = (cadena = "", palabra = "texto")=>{
 if (!cadena) return console.warm("No haz ingresado ningun texto");
 if (palabra === undefined) return console.warm("No ingresaste la palbra que quieres repetir");
 let i=0;
-  contador = 0;
+    contador = 0;
   while(i !== -1 ){
 i = cadena.indexOf(palabra, i);
     if( i !== -1){
@@ -115,6 +115,9 @@ const palabraPalindromo = (cadena = "")=>{
   if (!cadena) return console.warn("No haz ingresado ningun texto");
 
   cadena = cadena.toLocaleLowerCase();
+  // se creo la variable al Reves porque despues se tendra una comparación
+  //donde se va a comparar a cadena con alReves, para así demostrar si es o no
+  //palindroma
   let alReves = cadena.split("").reverse().join("");
   return(cadena === alReves)
 
@@ -249,6 +252,9 @@ const esONoPar = (numero = undefined) => {
 
 }
 esONoPar(6);
+console.log("******************");
+console.log("******************");
+
 
 
 
@@ -256,19 +262,56 @@ esONoPar(6);
 // 14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, 
 //pe. miFuncion(0,"C") devolverá 32°F.
 
-const ConvertirGrados = (grados = undefined) => {
-  if (!numero) return console.warn("No haz ingresado ningun numero");
-  if(typeof numero !== "number") return console.error(`El valor ${numero} No es un numero`);
+const ConvertirGrados = (grados= undefined, unidad = undefined) => {
+  if (grados === undefined) return console.warn("No haz ingresado los grados a convertir");
   
+  if(typeof grados !== "number") return console.error(`El valor ${grados} No es un numero`);
+  
+  if(unidad === undefined) return console.warn("No ingresaste el tipo de grado a convertir");
 
+  if(typeof unidad !== "string") return console.error(`El valor ${unidad} No es un string`);
+  
+  if(unidad.length !== 1 || !/(C|F)/.test(unidad)) return console.warn("Valor de unidad no reconocido");
 
+  if(unidad === "C"){
+    return console.info(`${grados}°C = ${Math.round((grados * (9/5)) + 32)}°F`);
+  } else if(unidad === "F"){
+    return console.info(`${grados}°F = ${Math.round(((grados - 32)* (5/9)))}°C`);
 
+  }
 
 }
 
 
+ConvertirGrados (100,"C");
+ConvertirGrados (32, "F")
+
+console.log("******************");
+console.log("******************");
 
 
+
+
+
+
+
+// 15) Programa una función para convertir números de base binaria
+// a decimal y viceversa, pe. miFuncion(100,2) devolverá 4 base 10.
+
+
+
+
+
+// 16) Programa una función que devuelva el monto final después de 
+//aplicar un descuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800.
+
+
+
+
+
+// 17) Programa una función que dada una fecha válida determine cuantos 
+//años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23))
+// devolverá 35 años (en 2020).
 
 
 </script>
