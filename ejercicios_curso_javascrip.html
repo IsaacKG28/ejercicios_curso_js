@@ -291,12 +291,33 @@ console.log("******************");
 
 
 
-
-
-
-
 // 15) Programa una función para convertir números de base binaria
 // a decimal y viceversa, pe. miFuncion(100,2) devolverá 4 base 10.
+
+
+  const convertirBinarioADecimal = (num =undefined, base=undefined)=>{
+
+    if (num === undefined) return console.warn("No haz ingresado el numero a convertir");
+  
+    if(typeof num !== "number") return console.error(`El valor ${num} No es un numero`);
+    
+    if(base === undefined) return console.warn(`No ingresaste la base a convertir${num}`);
+
+    if(typeof base !== "number") return console.error(`El valor ${base} No es un valor valido`);
+    
+    if(base.length = !/(10|2)/.test(base)) return console.warn("Valor de unidad no reconocido");
+
+    if (base === 2){
+      return console.info(`${num} base ${base} = ${parseInt(num, base)} base 10`);
+      }else if (base === 10){
+        return console.log(`${num} base ${base} = ${(num.toString(2))} base 2`);
+      }
+
+    }
+    convertirBinarioADecimal(100, 2);
+    convertirBinarioADecimal (4, 10);
+    console.log("******************");
+console.log("******************");
 
 
 
@@ -304,6 +325,21 @@ console.log("******************");
 
 // 16) Programa una función que devuelva el monto final después de 
 //aplicar un descuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800.
+
+const aplicarDescuento = (monto =undefined, descuento=0) =>{
+  if (monto === undefined) return console.warn("No haz ingresado el monto para el descuento");
+  if(typeof monto !== "number") return console.error(`El valor ${monto} No es un numero`);
+  if (Math.sign(monto)=== -1) return console.error("El valor del monto no puede ser negativo");
+  if(typeof descuento  !== "number") return console.error(`El valor ${descuento} No es un numero`);
+  if (Math.sign(descuento)=== -1) return console.error("El valor del monto no puede ser negativo");
+  return console.log(`${monto} - ${descuento}%  = ${monto - ((monto *descuento)/100)}`);
+
+
+}
+
+aplicarDescuento(1000, 20)
+console.log("******************");
+console.log("******************");
 
 
 
